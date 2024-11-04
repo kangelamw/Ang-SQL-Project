@@ -1,0 +1,6 @@
+"columnname","minval","maxval","avgval","quartile1","quartile2","quartile3","interquartilerange"
+"orderedquantity","1","15170","173.95","7","19","54","47"
+"stocklevel","1","19678","226.00","9","28","81","72"
+"restockingleadtime","1","42","11.85","8","12","15","7"
+"sentimentscore","-0.60","1.00","0.44","0.2","0.5","0.7","0.5"
+"sentimentmagnitude","0.10","2.00","0.77","0.4","0.8","1.1","0.7"

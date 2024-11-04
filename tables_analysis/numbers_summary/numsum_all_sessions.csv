@@ -1,0 +1,16 @@
+"columnname","minval","maxval","avgval","quartile1","quartile2","quartile3","interquartilerange"
+"time","1","3192410","140470.15","23371.75","55741","133487.75","110116"
+"totaltransactionrevenue","7500000","1015480000","176312469.14","32990000","116480000","169970000","136980000"
+"transactions","1","1","1.00","1","1","1","0"
+"timeonsite","1","4661","224.71","46","105","237","191"
+"pageviews","1","30","4.52","2","4","6","4"
+"sessionqualitydim","1","87","2.89","1","1","1","0"
+"productrefundamount",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"productquantity","1","65","3.57","1","1","1","0"
+"productprice","790000","298000000","29550168.04","9990000","18990000","24990000","15000000"
+"productrevenue","58656666","176400000","103855416.50","59937916.5","90182500","134100000","74162083.5"
+"itemquantity",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"itemrevenue",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"transactionrevenue","169970000","1015480000","597737500.00","192492500","602750000","1007995000","815502500"
+"ecommerceaction_type","1","6","2.10","1","2","2","1"
+"ecommerceaction_step","1","3","1.00","1","1","1","0"
