@@ -20,13 +20,13 @@ To ensure that I'm calculating the values properly using the UDF, I compared in-
 
 These are the queries I used:
 #### Exploration findings
-```
+```sql
 SELECT * FROM numbers_summary('analytics')
 ```
 > This tells me that the MIN value in units_sold column is -89 which could be an indication that the transaction is a refund, so we don't want to count that towards revenue (`greater than 0`).
 
 #### Main Query
-```
+```sql
 WITH qa_analytics_revenue AS (
 	SELECT
 	units_sold,

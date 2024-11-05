@@ -40,7 +40,7 @@ The top 5 Cities and their respective countries with the highest level of transa
 > [QA Section of Data Question 1](./data_questions_qa/data_q1_qa.md)
 
 **SQL Query:**
-```
+```sql
 SELECT 
     als.city,
     als.country,
@@ -69,7 +69,7 @@ Example use case:
 > [QA Section of Data Question 2](./data_questions_qa/data_q2_qa.md)
 
 **SQL Query:**
-```
+```sql
 WITH
 visitor_times AS (
     -- Use visitstarttime_proper for already converted times
@@ -178,7 +178,7 @@ We have 100% customer Loyalty in 15 cities:
 > We also have 85 countries where there is 0 customer loyalty (no repeat visits)
 
 **SQL Query**
-```
+```sql
 WITH repeat_visitors AS (
     SELECT
 	-- Counting total visits and repeats

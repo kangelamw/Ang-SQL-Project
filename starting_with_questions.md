@@ -13,7 +13,7 @@ Our top 3 cities with the highest level of transaction revenues are shown below:
 > View the full csv of the results [here.](./assignment_query_results/q1_query.csv)
 
 #### SQL Queries:
-```
+```sql
 WITH visitor_revenue AS (
 	-- Aggregates total revenue per fullVisitorId and date from analytics_revenue_table
     SELECT
@@ -71,7 +71,7 @@ Majority of the orders are coming from the United States, the average ranges bet
 - Chicago: 10
 
 #### SQL Queries:
-```
+```sql
 WITH visitor_units AS (
   -- Aggregate units_sold per visitor per date
     SELECT
@@ -133,7 +133,7 @@ Yes. YouTube and Google branded products, Electronics and Men's apparel, appear 
   * __Common Product Preferences__ Categories like Men’s T-Shirts and Electronics indicate that certain general product types (e.g., clothing, electronics) have broad, cross-country appeal.
 
 #### SQL Queries:
-```
+```sql
 WITH
 orders_by_category AS (
 -- This counts how many times each product category was ordered in each city and country, ordered by most to least (DESC)
@@ -202,7 +202,7 @@ Here's how I approached this:
 Upon reviewing the results of this query, it confirms what we found on question 3 where the popular products are mainly in the Electronics and Apparel categories or Youtube/Google branded.
 
 #### SQL Queries:
-```
+```sql
 WITH product_sales AS (
 	-- This table summarizes total quantities sold per product SKU in each city and country.
     SELECT
@@ -267,7 +267,7 @@ Our cities with the highest level of transaction revenues are shown below. This 
 > View the full csv of the results [here.](./assignment_query_results/q5_query.csv)
 
 #### SQL Queries:
-```
+```sql
 WITH visitor_revenue AS (
 	-- Aggregates total revenue per fullVisitorId and date from analytics_revenue_table
     SELECT

@@ -15,7 +15,7 @@ I added new columns with updated and properly formatted values.
 
 ### Query
 - `all_sessions` table
-```
+```sql
 -- Adding new columns
 	ALTER TABLE all_sessions
 	ADD COLUMN timeonsite_proper INTERVAL,
@@ -32,7 +32,7 @@ I added new columns with updated and properly formatted values.
 ```
 
 - `analytics` table
-```
+```sql
 -- Adding new columns
 	ALTER TABLE analytics
 	ADD COLUMN timeonsite_proper INTERVAL,
@@ -50,7 +50,7 @@ I added new columns with updated and properly formatted values.
 
 ### QA
 Exploratory Queries:
-```
+```sql
 -- Getting an overview of which columns to check and which table they're in.
 SELECT * FROM tables_general_overview
 	WHERE column_name LIKE '%time%'
@@ -63,7 +63,7 @@ SELECT * FROM numbers_summary('all_sessions')
 How are they measuring the time? Is this in `seconds` or `milliseconds`? I used the following queries to check.
 
 `ALL_SESSIONS` table:
-```
+```sql
 -- Checking if SECONDS
 SELECT
   (SELECT MIN(time)FROM all_sessions WHERE time != 0) AS minTime,
@@ -90,7 +90,7 @@ FROM all_sessions
 -- minTime is 0, maxTime is 53m 12s 41ms ... This seems more realistic
 ```
 `ANALYTICS` table:
-```
+```sql
 -- Checking if SECONDS
 SELECT
   (SELECT MIN(timeonsite) FROM analytics WHERE timeonsite != 0) AS min_time,
@@ -126,7 +126,7 @@ MAX converted: "2017-08-02 06:59:50"
 
 Verifying that tables were updated:
 **`all_sessions` table**
-```
+```sql
 -- time
 SELECT time, time_proper
 FROM all_sessions
@@ -144,7 +144,7 @@ LIMIT 5;
 - ![timeonsite](../img/timeonsite_als.png)
 
 **`analytics` table**
-```
+```sql
 -- visitStartTime
 SELECT visitstarttime, visitstarttime_proper
 FROM analytics

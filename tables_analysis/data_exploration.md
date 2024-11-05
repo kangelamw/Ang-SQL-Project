@@ -8,7 +8,7 @@ We have the ff. tables:
 
 ## PROCESS 1
 Identifying what the columns look like and the data in them.
-```
+```sql
 SELECT * FROM all_sessions
 SELECT * FROM analytics
 SELECT * FROM sales_report
@@ -25,7 +25,7 @@ I created a User-Defined-Function to get a generalized overview of the columns i
 *(f.e. all_sessions.itemQuantity -- It doesn't matter if multiple items are different quantities)*
 
 The query is shown below. [Click here to view documentation](./tables_analysis/udf_overview_of_each_column.md)
-```
+```sql
 CREATE OR REPLACE FUNCTION overview_of_each_column(tablename TEXT)
 RETURNS TABLE(
     column_name TEXT,
@@ -62,7 +62,7 @@ $$ LANGUAGE plpgsql;
 
 ### Getting a general overview of each table using UDF: overview_of_each_column('table_name')
 General overview of columns in the table: **[all_sessions](./tables_analysis/overview_of_each_column/quick_all_sessions.csv)**
-```
+```sql
   -- Query 1: UDF: overview_of_each_column('all_sessions')
     SELECT * FROM overview_of_each_column('all_sessions')
       ORDER BY num_of_null_val DESC; -- 0.368s to run
@@ -73,7 +73,7 @@ General overview of columns in the table: **[all_sessions](./tables_analysis/ove
 ```
 
 General overview of columns in the table: **[analytics](./tables_analysis/overview_of_each_column/quick_analytics.csv)**
-```
+```sql
   -- Query 1: UDF: overview_of_each_column('analytics')
     SELECT * FROM overview_of_each_column('analytics')
       ORDER BY num_of_null_val DESC; -- 39.563s to run
@@ -83,7 +83,7 @@ General overview of columns in the table: **[analytics](./tables_analysis/overvi
       ORDER BY num_of_null_val DESC; -- 0.115s to run
 ```
 General overview of columns in the table: **[products](./tables_analysis/overview_of_each_column/quick_products.csv)**
-```
+```sql
   -- Query 1: UDF: overview_of_each_column('products')
     SELECT * FROM overview_of_each_column('products')
       ORDER BY num_of_null_val DESC; -- 1.832s to run
@@ -94,7 +94,7 @@ General overview of columns in the table: **[products](./tables_analysis/overvie
 ```
 
 General overview of columns in the table: **[sales_report](./tables_analysis/overview_of_each_column/quick_sales_report.csv)**
-```
+```sql
   -- Query 1: UDF: overview_of_each_column('sales_report')
     SELECT * FROM overview_of_each_column('sales_report')
       ORDER BY num_of_null_val DESC; -- 1.828s to run
@@ -104,7 +104,7 @@ General overview of columns in the table: **[sales_report](./tables_analysis/ove
       ORDER BY num_of_null_val DESC; -- 0.101s to run
 ```
 General overview of columns in the table: **[sales_by_sku](./tables_analysis/overview_of_each_column/quick_sales_by_sku.csv)**
-```
+```sql
   -- Query 1: UDF: overview_of_each_column('sales_by_sku')
     SELECT * FROM overview_of_each_column('sales_by_sku')
       ORDER BY num_of_null_val DESC; -- 1.676s to run
@@ -119,7 +119,7 @@ I created a User-Defined-Function to get a generalized overview of the numbers w
 
 
 The query is shown below. [Click here to view documentation](./tables_analysis/udf_numbers_summary.md)
-```
+```sql
 CREATE OR REPLACE FUNCTION numbers_summary(p_tableName TEXT)
 RETURNS TABLE (
     columnName TEXT,
@@ -168,24 +168,24 @@ END;
 
 ### Getting a general overview of the numbers in each table using UDF: numbers_summary('table_name')
 General overview of columns in the table: **[all_sessions](./tables_analysis/numbers_summary/numsum_all_sessions.csv)**
-```
+```sql
     SELECT * FROM numbers_summary('all_sessions')
 ```
 
 General overview of columns in the table: **[analytics](./tables_analysis/numbers_summary/numsum_analytics.csv)**
-```
+```sql
     SELECT * FROM numbers_summary('analytics')
 ```
 General overview of columns in the table: **[products](./tables_analysis/numbers_summary/numsum_products.csv)**
-```
+```sql
     SELECT * FROM numbers_summary('products')
 ```
 
 General overview of columns in the table: **[sales_report](./tables_analysis/numbers_summary/numsum_sales_report.csv)**
-```
+```sql
     SELECT * FROM numbers_summary('sales_report')
 ```
 General overview of columns in the table: **[sales_by_sku](./tables_analysis/numbers_summary/numsum_sales_by_sku.csv)**
-```
+```sql
     SELECT * FROM numbers_summary('sales_by_sku')
 ```

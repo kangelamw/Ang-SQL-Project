@@ -9,7 +9,7 @@
 > [Full csv](../materialized_views/mat_analytics_revenue_table.csv)
 
 ### Query:
-```
+```sql
 CREATE MATERIALIZED VIEW analytics_revenue_table AS
   SELECT fullvisitorid,
     date,

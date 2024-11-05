@@ -3,7 +3,7 @@
 
 ### Answer:
 ![referral source](../img/referral.png)
-```
+```sql
 WITH referredVisits AS (
   SELECT
     als.fullvisitorid,
@@ -25,14 +25,14 @@ WITH referredVisits AS (
 ### QA:
 This query counts the number of DISTINCT fullVisitor IDs that was referred to the site
 
-```
+```sql
 SELECT COUNT(DISTINCT als.fullvisitorid)
 FROM all_sessions als
 WHERE als.channelgrouping = 'Referral'; -- It returns 2419
 ```
 
 I'm using a CTE to SUM the counts of unique fullVisitorIds from the resulting query to verify that we ended with the same count:
-```
+```sql
 WITH QA_table AS (
 	WITH referredVisits AS (
 		SELECT
@@ -52,6 +52,6 @@ WITH QA_table AS (
 )	
 ```
 
-```
+```sql
 SELECT SUM(uniqueVisitorCount) FROM QA_table -- Returns 2419!
 ```

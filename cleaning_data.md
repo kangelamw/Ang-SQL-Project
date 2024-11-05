@@ -30,7 +30,7 @@ Where it shows cost/pricing in this data, it needs to be divided by 1,000,000
 ### **Solution 01**
 
 I created a User-Defined Function that divides a value by 1,000,000 and rounds it to 2 decimal points
-```
+```sql
 CREATE OR REPLACE FUNCTION dividebymil(num NUMERIC)
 RETURNS NUMERIC AS
 $$
@@ -52,7 +52,7 @@ This table shows the full visitor id, sale date, number of units sold, unit pric
 >If revenue is null, it calculates `units_sold * unit_price`. I used `COALESCE` and the `dividebymil` UDF to divide the relevant numbers by 1M and round to to decimal places.
 
 This view utilizes the [`UDF: dividebymil(num)`](./tools_etc/udf_dividebymil.md) to provide proper pricing.
-```
+```sql
 CREATE MATERIALIZED VIEW  analytics_revenue_table AS
 	SELECT
 	    fullvisitorid,
@@ -78,7 +78,7 @@ I need a table to refer back to when ensuring I am calculating values that shoul
 
 I created a materialized view of table containing a list of all the unique_fullvisitorids to have ever appeared in our system.
 > [Full table](./materialized_views/mat_unique_fullvisitorids.csv)
-```
+```sql
 CREATE MATERIALIZED VIEW unique_fullvisitorids AS
 	SELECT DISTINCT all_sessions.fullvisitorid
   	FROM all_sessions
@@ -99,7 +99,7 @@ Inconsistency in the ff. time-related entries:
 I added new columns with updated and properly formatted values.
 
 - `all_sessions` table
-```
+```sql
 -- Adding new columns
 	ALTER TABLE all_sessions
 	ADD COLUMN timeonsite_proper INTERVAL,
@@ -116,7 +116,7 @@ I added new columns with updated and properly formatted values.
 ```
 
 - `analytics` table
-```
+```sql
 -- Adding new columns
 	ALTER TABLE analytics
 	ADD COLUMN timeonsite_proper INTERVAL,

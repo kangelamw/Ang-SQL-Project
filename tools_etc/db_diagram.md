@@ -1,7 +1,7 @@
 # COPY AND PASTE INTO:
 [https://dbdiagram.io/d](https://dbdiagram.io/d)
 
-```
+```sql
 TABLE sales_by_sku {
   productSKU VARCHAR(50)
   total_ordered INTEGER

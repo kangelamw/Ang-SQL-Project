@@ -11,7 +11,7 @@ A User Defined Function (UDF) that takes in a whole table as a parameter to show
 ![usecase img](../img/usecase_01.png)
 
 ### Calling the function matches the data from the ff. queries:
-```
+```sql
 SELECT COUNT(*) FROM sales_by_sku		-- Result is 462
 	-- WHERE	total_ordered	IS NULL -- Result is 0
 	-- WHERE	productsku		IS NULL -- Result is 0
@@ -24,7 +24,7 @@ SELECT COUNT(*) FROM sales_by_sku		-- Result is 462
 ```
 
 ### The Query
-```
+```sql
 CREATE OR REPLACE FUNCTION overview_of_each_column(tableName TEXT)
 
 RETURNS TABLE(

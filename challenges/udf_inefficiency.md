@@ -10,7 +10,7 @@ I noticed an efficiency problem where running the UDF `overview_of_each_column('
   > Calling `SELECT * FROM tables_general_overview WHERE table_name = 'analytics' ORDER BY num_of_null_val DESC` takes 0.115s
 
 The query creating this view is shown below:
-```
+```sql
 CREATE MATERIALIZED VIEW tables_general_overview AS
   SELECT 'sales_by_sku' AS table_name, *
   FROM overview_of_each_column('sales_by_sku') 	

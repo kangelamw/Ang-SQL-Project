@@ -3,7 +3,7 @@
 ## No Primary Keys
 
 ### all_sessions.csv
-```
+```sql
 CREATE TABLE all_sessions (
     fullVisitorId TEXT, 
     channelGrouping TEXT,

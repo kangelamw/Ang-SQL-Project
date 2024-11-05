@@ -12,7 +12,7 @@ This table shows the full visitor id, sale date, number of units sold, unit pric
 This view utilizes the [`UDF: dividebymil(num)`](./tools_etc/udf_dividebymil.md) to provide proper pricing.
 
 ### Query
-```
+```sql
 CREATE MATERIALIZED VIEW analytics_revenue_table AS
 	SELECT
 	    fullvisitorid,
@@ -33,7 +33,7 @@ CREATE MATERIALIZED VIEW analytics_revenue_table AS
 ### QA
 I compared the extrapolated values from the original values and decided that the minute differences between the two is an acceptable margin of error.
 > The difference between the two values ranges `between $0.05 and $9.00` which is `0.03% to 6.01%`
-```
+```sql
 WITH
 differences_table AS (
 	SELECT

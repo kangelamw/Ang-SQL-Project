@@ -16,7 +16,7 @@ A User Defined Function (UDF) that takes the name of a table as a parameter and 
 ![usecase img](../img/usecase_03.png)
 
 ### Calling the function matches the ff data:
-```
+```sql
 SELECT
     'total_ordered' AS columnName,
     MIN(total_ordered) AS minVal,
@@ -31,7 +31,7 @@ WHERE total_ordered IS NOT NULL AND total_ordered <> 0;
 ```
 
 ### The Query
-```
+```sql
 CREATE OR REPLACE FUNCTION numbers_summary(tableName TEXT)
 RETURNS TABLE (
     columnName TEXT,

@@ -9,7 +9,7 @@ Example use case:
 
 ## QA
 Ensuring we're only counting 24 hours.
-```
+```sql
 WITH
 visitor_times AS (
     -- Use visitstarttime_proper for already converted times
@@ -37,7 +37,7 @@ ORDER BY visit_hour;
 ```
 
 Finding total visit counts per country:
-```
+```sql
 WITH
 visitor_times AS (
     -- Use visitstarttime_proper for already converted times
@@ -68,7 +68,7 @@ ORDER BY num_records DESC;
 
 
 **SQL Query:**
-```
+```sql
 WITH
 visitor_times AS (
     -- Use visitstarttime_proper for already converted times

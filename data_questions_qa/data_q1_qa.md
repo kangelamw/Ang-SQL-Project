@@ -7,7 +7,7 @@ For this answer, First I reviewed the following relevant columns from `all_sessi
   * transactionrevenue
 
 This is the query I used:
-```
+```sql
 SELECT 
     als.city,
     als.country,
@@ -26,7 +26,7 @@ LIMIT 5;
 
 
 Using a CTE, I checked for the SUM of `total_transactions` and `total_revenue` from the query.
-```
+```sql
 WITH data_query AS (
 	SELECT 
 	    als.city,
@@ -47,7 +47,7 @@ SELECT SUM(total_revenue), SUM(total_transactions) FROM data_query
 ```
 
 I checked if the aggregation results matches the expected counts.
-```
+```sql
 SELECT SUM(transactions) AS expected_total_transactions,
        SUM(dividebymil(totaltransactionrevenue)) AS expected_total_revenue
 FROM all_sessions
