@@ -1,5 +1,4 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
-
 ## Project/Goals
 The project involves a comprehensive analysis of sales and web analytics data to uncover insights about customer behavior and sales performance across various geographic locations.
 
