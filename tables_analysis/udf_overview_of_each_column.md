@@ -5,10 +5,14 @@ A User Defined Function (UDF) that takes in a whole table as a parameter to show
 - number of NULL values
 - number of DISTINCT values
 
+<br>
+
 ### Use case:
 `SELECT * FROM overview_of_each_column('sales_by_sku')`
 
 ![usecase img](../img/usecase_01.png)
+
+<br>
 
 ### Calling the function matches the data from the ff. queries:
 ```sql
@@ -22,6 +26,8 @@ SELECT COUNT(*) FROM sales_by_sku		-- Result is 462
 	SELECT	COUNT(DISTINCT productsku)	
         FROM sales_by_sku -- Result is 462
 ```
+
+<br>
 
 ### The Query
 ```sql

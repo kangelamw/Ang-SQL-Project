@@ -60,6 +60,8 @@ ORDER BY
 LIMIT 3 ; -- 19 rows total before the limit.
 ```
 
+<br>
+
 ## Question 2: What is the average number of products ordered from visitors in each city and country?
 Here's how I approached this:
 - I used the [`analytics_revenue_table`](./tools_etc/mat_analytics_revenue_table.md) to get `units_sold` per `fullVisitorId` and `date`.
@@ -119,9 +121,11 @@ ORDER BY
 ```
 > View the full csv of the Main Query's results [here.](./assignment_query_results/q2_query.csv)
 
+<br>
+
 ## Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?
 Here's how I approached this:
-- I used `v2ProductCategory` from all_sessions to identify product categories. Since it has no null values, I can include all the records.
+- I used `v2ProductCategory` from `all_sessions` to identify product categories. Since it has **no null** values, I can include all the records.
 - Count the number of orders per product category in each city and country and ordered the results to begin observing patterns in the higher categories.
 - Upon initial inspection, I saw recurring categories of product across multiple countries and tried to confirm what I gathered.
 
@@ -192,6 +196,7 @@ ORDER BY
 
 > View the full csv of Main Query #2's results [here.](./assignment_query_results/q3_query_b.csv)
 
+<br>
 
 ## Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?
 Here's how I approached this:
@@ -199,7 +204,7 @@ Here's how I approached this:
   - I ranked them with a window function to calculate total quantity sold per product in each `city` and `country`.
 
 ### Answer:
-Upon reviewing the results of this query, it confirms what we found on question 3 where the popular products are mainly in the Electronics and Apparel categories or Youtube/Google branded.
+Upon reviewing the results of this query, it <u>confirms</u> what we found on question 3 where the popular products are mainly in the Electronics and Apparel categories or Youtube/Google branded.
 
 #### SQL Queries:
 ```sql
@@ -255,6 +260,8 @@ ORDER BY
 	total_quantity DESC;
 ```
 > View the full csv of the results [here.](./assignment_query_results/q4_query.csv)
+
+<br>
 
 ## Question 5: Can we summarize the impact of revenue generated from each city/country?
 Here's how I approached this:

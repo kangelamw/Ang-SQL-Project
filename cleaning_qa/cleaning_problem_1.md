@@ -5,7 +5,7 @@ Where it shows cost/pricing in this data, it needs to be divided by 1,000,000
 I created a User-Defined Function that divides a value by 1,000,000 and rounds it to 2 decimal points.
 
 ### Query
-```
+```sql
 CREATE OR REPLACE FUNCTION dividebymil(num NUMERIC)
 RETURNS NUMERIC AS
 $$

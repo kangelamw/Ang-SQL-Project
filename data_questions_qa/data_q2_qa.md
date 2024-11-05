@@ -1,11 +1,15 @@
 # Question 2: What are the site's peak hours per country?
 This aims to determine peak hours for site visits across different cities and countries to help us optimize our server space allocation and plan site updates more efficiently while ensuring we have 100% up time at peak hours.
 
+<br>
+
 ### Answer:
 This tells us the peak hours in Canada and the US. From here, we can find optimal update windows and when to allocate more server space per country, per hour. *Also for cutting down on server costs*
 
 Example use case:
 ![alt text](../img/dataq2.png)
+
+<br>
 
 ## QA
 Ensuring we're only counting 24 hours.
@@ -35,6 +39,8 @@ SELECT DISTINCT visit_hour
 FROM visitor_times
 ORDER BY visit_hour;
 ```
+
+<br>
 
 Finding total visit counts per country:
 ```sql
@@ -66,6 +72,7 @@ ORDER BY num_records DESC;
 ```
 > Majority of our visitors are coming from the US!
 
+<br>
 
 **SQL Query:**
 ```sql

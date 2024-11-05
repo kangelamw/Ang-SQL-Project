@@ -4,14 +4,20 @@
 Where it shows cost/pricing in this data, it needs to be divided by 1,000,000
 > Solution: I created a User-Defined Function: [dividebymil](./tools_etc/udf_dividebymil.md) that divides a value by 1,000,000 and rounds it to 2 decimal points
 
+<br>
+
 **Problem 02:**
 Some values in the revenue table is empty, but I saw that there are no null values in the unit_price table. I've also observed that units_sold is greater than 1, indicating that there was a sale.
 > Solution: 
 I created a materialized view of table containing a list of all the unique_fullvisitorids to have ever appeared in our system.
 
+<br>
+
 **Problem 03:**
 I need a table to refer back to when ensuring I am calculating values that should be unique to a visitor.
 > Solution: I need a table to refer back to when ensuring I am calculating values that should be unique to a visitor.
+
+<br>
 
 **Problem 04:**
 Inconsistency in the following time-related entries:
@@ -20,6 +26,8 @@ Inconsistency in the following time-related entries:
 - `all_sessions.timeonsite` is in __seconds__
 - `all_sessions.time` is in __milliseconds__
 > Solution: I added new columns with updated and properly formatted values.
+
+<br>
 
 # Queries:
 Below, provide the SQL queries you used to clean your data.
@@ -40,6 +48,8 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 > [QA on this query for cleaning problem 1](./cleaning_qa/cleaning_problem_1.md)
+
+<br>
 
 ## **Problem 02**
 Some values in the revenue table is empty, but I saw that there are no null values in the unit_price table. I've also observed that units_sold is greater than 1, indicating that there was a sale.
@@ -71,6 +81,8 @@ CREATE MATERIALIZED VIEW  analytics_revenue_table AS
 ```
 > [QA on this query for cleaning problem 2](./cleaning_qa/cleaning_problem_2.md)
 
+<br>
+
 ## **Problem 03**
 I need a table to refer back to when ensuring I am calculating values that should be unique to a visitor.
 
@@ -86,6 +98,8 @@ CREATE MATERIALIZED VIEW unique_fullvisitorids AS
  	SELECT DISTINCT analytics.fullvisitorid
   	FROM analytics;
 ```
+
+<br>
 
 ## **Problem 04**
 Inconsistency in the ff. time-related entries:

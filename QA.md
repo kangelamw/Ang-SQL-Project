@@ -8,6 +8,8 @@
 - These were mainly on time-related values. It tells us how long the visitors spent on the site, or when their session started. I had to verify what the values could be and put in additional columns showing these proper values.
   > For instance, timeonsite is in **seconds**, time is in **milliseconds**, and visitstarttime is a lot of numbers, but it's a **date** with **time**.
 
+<br>
+
 ## QA Process
 Describe your QA process and include the SQL queries used to execute it.
 > Read more about the my Data Exploration Process [here.](./tables_analysis/data_exploration.md)
@@ -21,6 +23,8 @@ SELECT * FROM sales_report
 SELECT * FROM sales_by_sku
 SELECT * FROM products
 ```
+
+<br>
 
 ### 2. This is how I checked for total number of rows, null and distinct values.
 
@@ -44,6 +48,7 @@ SELECT * FROM tables_general_overview WHERE table_name = 'sales_report'
 - *What is `tables_general_overview('tablename')`?* A UDF.
 	- Click [here](./tables_analysis/udf_overview_of_each_column.md) for the longer answer.
 
+<br>
 
 ### 3. I used `numbers_summary('tablename')` to compute the Five Number Summary of each numeric column in a table.
 **Queries:**
@@ -57,6 +62,7 @@ SELECT * FROM numbers_summary('sales_by_sku')
 - *What is `numbers_summary('tablename')`?* A UDF.
 	- Click [here](./tables_analysis/udf_numbers_summary.md) for the longer answer.
 
+<br>
 
 ## For the UDFs used
 Prior to using the following UDFs to answer the questions, I've ensured that each function was producing the same output as doing manual computations.

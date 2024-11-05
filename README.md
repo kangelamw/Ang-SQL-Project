@@ -4,6 +4,8 @@ The project involves a comprehensive analysis of sales and web analytics data to
 
 By examining transaction revenues, product ordering patterns, and product category preferences, the goal is to inform strategic decisions in marketing, sales, inventory management, and customer engagement.
 
+<br>
+
 **<u>Understanding Revenue Distribution by Geographic Location</u>**
 - Identifying top-performing locations by transaction revenue allows us to focus marketing efforts and resource allocation to those cities.
 - Summarizing the revenue impact of each city and country to understand their contribution to overall sales.
@@ -19,9 +21,13 @@ By examining transaction revenues, product ordering patterns, and product catego
 - Target promotions, loyalty programs, and customer engagement initiatives in these areas to strengthen customer relationships and increase repeat purchases.
 - Develop strategies to improve customer engagement, address potential barriers to repeat visits, and expand market presence in these areas.
 
+<br>
+
 A significant part of the project was dedicated to understanding the data's intricacies, addressing data quality issues, and ensuring the robustness of the analytical methods and UDFs used.
 
 This thorough foundation was essential before applying these methods to answer key questions, reducing the need for extensive QA and ensuring that the insights produced could effectively guide strategic decisions.
+
+<br>
 
 # Process
 ### Exploring each table's CSVs & Loading the Data into the DB
@@ -67,8 +73,15 @@ I found them very useful and I can see myself reusing the `overview_of_each_colu
 - [db diagram](https://dbdiagram.io/d): Quick interactive ERDs
 - [notepad++](https://notepad-plus-plus.org/): For viewing CSVs
 
+<br>
+
+## Schema
+
+![schema](./schema.png)
+
+<br>
+
 ## Results
-![schema](./img/schema.png)
 ### 1. We've identified where the majority of transactions are coming from per city and country
 The data tells us which locations generate the most transactions on our site to prioritize marketing efforts and resource allocation effectively.
 - Majority of transactions and revenue are coming from cities in United States and United Kingdom.
@@ -87,8 +100,12 @@ This information helps in tailoring marketing strategies, offering targeted prom
   - Opportunity exists to investigate why customers aren't returning.
   - Strategies could include improving user experience, follow-up marketing, or addressing any localized issues.
 
-### Conclusion
+<br>
+
+## Conclusion
 The data provides valuable insights into customer behavior, transaction trends, peak activity times, and loyalty patterns. By analyzing the data, we can make data-driven decisions on where to focus marketing efforts, how to allocate resources, and ways to enhance customer engagement.
+
+<br>
 
 ## Challenges 
 1. I forgot my psql passphrase.
@@ -98,6 +115,7 @@ The data provides valuable insights into customer behavior, transaction trends, 
   - I noticed an efficiency problem where running the UDF [`overview_of_each_column`](./tables_analysis/udf_overview_of_each_column.md) on some tables could take an unnecessarily long time.
     > I created a materialized view and queried the results. [Here's the longer version](./challenges/udf_inefficiency.md)  of how I solved it.
 
+<br>
 
 ## Future Goals
 If we had more time, we could expand our analysis and pursue additional objectives to deepen our understanding of customer behavior and optimize our business strategies.

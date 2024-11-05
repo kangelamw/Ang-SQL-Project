@@ -1,32 +1,46 @@
-#
-Consider the data you have available to you.  You can use the data to:
+# Consider the data you have available to you. You can use the data to:
 - find all duplicate records
 - find the total number of unique visitors (`fullVisitorID`)
-	- `SELECT COUNT(*) FROM unique_fullVisitorIds`
-	- Answer: __130,045__
+	- **Answer**
+        <details>
+
+        __130,045__
+
+        ```sql
+        `SELECT COUNT(*) FROM unique_fullVisitorIds`
+        ```
+
+        </details>
 - find the total number of unique visitors by referring sites
-	- Answer:
-	- ![referral source](./img/referral.png)
-	- ```
-		WITH referredVisits AS (
-			SELECT
-				als.fullvisitorid,
-				als.pagepathlevel1 AS referralSource,
-				ROW_NUMBER() OVER 	(PARTITION BY als.fullvisitorid
-														ORDER BY als.date, als.date)
-														AS referralNumber
-				FROM	all_sessions als
-				WHERE	als.channelgrouping = 'Referral'
-		)
-			SELECT	rVs.referralSource,
-						COUNT(DISTINCT rVs.fullvisitorid) AS uniqueVisitorCount
-			FROM	referredVisits rVs
-			WHERE	rVs.referralNumber = 1
-			GROUP BY	rVs.referralSource
-			ORDER BY	uniqueVisitorCount DESC;
-		```
+	- **Answer**
+        <details>
+        
+        ![referral source](./img/referral.png)
+
+        ```sql
+            WITH referredVisits AS (
+                SELECT
+                    als.fullvisitorid,
+                    als.pagepathlevel1 AS referralSource,
+                    ROW_NUMBER() OVER 	(PARTITION BY als.fullvisitorid
+                                                            ORDER BY als.date, als.date)
+                                                            AS referralNumber
+                    FROM	all_sessions als
+                    WHERE	als.channelgrouping = 'Referral'
+            )
+                SELECT	rVs.referralSource,
+                            COUNT(DISTINCT rVs.fullvisitorid) AS uniqueVisitorCount
+                FROM	referredVisits rVs
+                WHERE	rVs.referralNumber = 1
+                GROUP BY	rVs.referralSource
+                ORDER BY	uniqueVisitorCount DESC;
+        ```
+
+        </details>
 - find each unique product viewed by each visitor
 - compute the percentage of visitors to the site that actually makes a purchase
+
+<br>
 
 # New Questions:
 ## Question 1: Which cities and countries have the highest number of transactions on the site?
@@ -38,6 +52,8 @@ The top 5 Cities and their respective countries with the highest level of transa
 ![alt text](./img/dataq1.png)
 
 > [QA Section of Data Question 1](./data_questions_qa/data_q1_qa.md)
+
+<br>
 
 **SQL Query:**
 ```sql
@@ -57,6 +73,7 @@ ORDER BY total_revenue DESC
 LIMIT 5;
 ```
 
+<br>
 
 ## Question 2: What are the site's peak hours per country?
 This aims to determine peak hours for site visits across different cities and countries to help us optimize our server space allocation and plan site updates more efficiently while ensuring we have 100% up time at peak hours.
@@ -67,6 +84,8 @@ Example use case:
 - This tells us the peak hours in Canada and the US. From here, we can find optimal update windows and when to allocate more server space per country, per hour. *Also for cutting down on server costs*
 
 > [QA Section of Data Question 2](./data_questions_qa/data_q2_qa.md)
+
+<br>
 
 **SQL Query:**
 ```sql
@@ -166,16 +185,20 @@ ORDER BY
 SELECT * FROM select_country WHERE country IN ('Canada', 'United States')
 ```
 
+<br>
+
 ## Question 3: Where are our most loyal customers located?
 *This analysis provides us insights into user loyalty and engagement in different locations.*
 
-We can run promotions and sales to reward/target repeat customers.
+ > We can run promotions and sales to reward/target repeat customers.
 
 ### Answer:
 We have 100% customer Loyalty in 15 cities:
 
 ![alt text](./img/dataq3.png)
 > We also have 85 countries where there is 0 customer loyalty (no repeat visits)
+
+<br>
 
 **SQL Query**
 ```sql

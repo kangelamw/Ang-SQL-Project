@@ -24,6 +24,7 @@ ORDER BY total_revenue DESC
 LIMIT 5;
 ```
 
+<br>
 
 Using a CTE, I checked for the SUM of `total_transactions` and `total_revenue` from the query.
 ```sql
@@ -45,6 +46,8 @@ WITH data_query AS (
 	)
 SELECT SUM(total_revenue), SUM(total_transactions) FROM data_query
 ```
+
+<br>
 
 I checked if the aggregation results matches the expected counts.
 ```sql

@@ -10,10 +10,14 @@ A User Defined Function (UDF) that takes the name of a table as a parameter and 
     - 75th percentile (quartile3)
     - Interquartile range (Q3 - Q1) (interquartileRange)
 
+<br>    
+
 ### Use case:
 `SELECT * FROM numbers_summary('sales_by_sku')`
 
 ![usecase img](../img/usecase_03.png)
+
+<br>
 
 ### Calling the function matches the ff data:
 ```sql
@@ -29,6 +33,8 @@ SELECT
 FROM sales_by_sku
 WHERE total_ordered IS NOT NULL AND total_ordered <> 0;
 ```
+
+<br>
 
 ### The Query
 ```sql

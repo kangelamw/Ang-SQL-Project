@@ -1,10 +1,18 @@
 # Data Exploration: An overview:
 We have the ff. tables:
-  * all_sessions
-  * analytics
-  * products
-  * sales_report
-  * sales_by_sku
+  * `all_sessions`
+  * `analytics`
+  * `products`
+  * `sales_report`
+  * `sales_by_sku`
+
+<br>
+
+### Schema
+
+![schema](../schema.png)
+
+<br>
 
 ## PROCESS 1
 Identifying what the columns look like and the data in them.
@@ -15,6 +23,8 @@ SELECT * FROM sales_report
 SELECT * FROM sales_by_sku
 SELECT * FROM products
 ```
+
+<br>
 
 ## PROCESS 2
 I created a User-Defined-Function to get a generalized overview of the columns in each table to know:
@@ -59,6 +69,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 ```
+
+<br>
 
 ### Getting a general overview of each table using UDF: overview_of_each_column('table_name')
 General overview of columns in the table: **[all_sessions](./tables_analysis/overview_of_each_column/quick_all_sessions.csv)**
@@ -114,6 +126,8 @@ General overview of columns in the table: **[sales_by_sku](./tables_analysis/ove
       ORDER BY num_of_null_val DESC; -- 0.089s to run
 ```
 
+<br>
+
 ## PROCESS 3
 I created a User-Defined-Function to get a generalized overview of the numbers within the columns of each table. This function finds Numeric Data types in the table and performs a `Five Number Summary` calculation on each.
 
@@ -166,25 +180,37 @@ BEGIN
 END;
 ```
 
+<br>
+
 ### Getting a general overview of the numbers in each table using UDF: numbers_summary('table_name')
 General overview of columns in the table: **[all_sessions](./tables_analysis/numbers_summary/numsum_all_sessions.csv)**
 ```sql
     SELECT * FROM numbers_summary('all_sessions')
 ```
 
+<br>
+
 General overview of columns in the table: **[analytics](./tables_analysis/numbers_summary/numsum_analytics.csv)**
 ```sql
     SELECT * FROM numbers_summary('analytics')
 ```
+
+<br>
+
 General overview of columns in the table: **[products](./tables_analysis/numbers_summary/numsum_products.csv)**
 ```sql
     SELECT * FROM numbers_summary('products')
 ```
 
+<br>
+
 General overview of columns in the table: **[sales_report](./tables_analysis/numbers_summary/numsum_sales_report.csv)**
 ```sql
     SELECT * FROM numbers_summary('sales_report')
 ```
+
+<br>
+
 General overview of columns in the table: **[sales_by_sku](./tables_analysis/numbers_summary/numsum_sales_by_sku.csv)**
 ```sql
     SELECT * FROM numbers_summary('sales_by_sku')
