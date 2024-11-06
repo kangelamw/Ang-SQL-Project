@@ -34,7 +34,7 @@ I created a User-Defined-Function to get a generalized overview of the columns i
 *Sometimes, the count of distinct values is irrelevant to the column*
 *(f.e. all_sessions.itemQuantity -- It doesn't matter if multiple items are different quantities)*
 
-The query is shown below. [Click here to view documentation](./tables_analysis/udf_overview_of_each_column.md)
+The query is shown below. [Click here to view documentation](./udf_overview_of_each_column.md)
 ```sql
 CREATE OR REPLACE FUNCTION overview_of_each_column(tablename TEXT)
 RETURNS TABLE(
@@ -73,7 +73,7 @@ $$ LANGUAGE plpgsql;
 <br>
 
 ### Getting a general overview of each table using UDF: overview_of_each_column('table_name')
-General overview of columns in the table: **[all_sessions](./tables_analysis/overview_of_each_column/quick_all_sessions.csv)**
+General overview of columns in the table: **[all_sessions](./overview_of_each_column/quick_all_sessions.csv)**
 ```sql
   -- Query 1: UDF: overview_of_each_column('all_sessions')
     SELECT * FROM overview_of_each_column('all_sessions')
@@ -84,7 +84,7 @@ General overview of columns in the table: **[all_sessions](./tables_analysis/ove
       ORDER BY num_of_null_val DESC; -- 0.120s to run
 ```
 
-General overview of columns in the table: **[analytics](./tables_analysis/overview_of_each_column/quick_analytics.csv)**
+General overview of columns in the table: **[analytics](./overview_of_each_column/quick_analytics.csv)**
 ```sql
   -- Query 1: UDF: overview_of_each_column('analytics')
     SELECT * FROM overview_of_each_column('analytics')
@@ -94,7 +94,7 @@ General overview of columns in the table: **[analytics](./tables_analysis/overvi
     SELECT * FROM tables_general_overview WHERE table_name = 'analytics'
       ORDER BY num_of_null_val DESC; -- 0.115s to run
 ```
-General overview of columns in the table: **[products](./tables_analysis/overview_of_each_column/quick_products.csv)**
+General overview of columns in the table: **[products](./overview_of_each_column/quick_products.csv)**
 ```sql
   -- Query 1: UDF: overview_of_each_column('products')
     SELECT * FROM overview_of_each_column('products')
@@ -105,7 +105,7 @@ General overview of columns in the table: **[products](./tables_analysis/overvie
       ORDER BY num_of_null_val DESC; -- 0.089s to run
 ```
 
-General overview of columns in the table: **[sales_report](./tables_analysis/overview_of_each_column/quick_sales_report.csv)**
+General overview of columns in the table: **[sales_report](./overview_of_each_column/quick_sales_report.csv)**
 ```sql
   -- Query 1: UDF: overview_of_each_column('sales_report')
     SELECT * FROM overview_of_each_column('sales_report')
@@ -115,7 +115,7 @@ General overview of columns in the table: **[sales_report](./tables_analysis/ove
     SELECT * FROM tables_general_overview WHERE table_name = 'sales_report'
       ORDER BY num_of_null_val DESC; -- 0.101s to run
 ```
-General overview of columns in the table: **[sales_by_sku](./tables_analysis/overview_of_each_column/quick_sales_by_sku.csv)**
+General overview of columns in the table: **[sales_by_sku](./overview_of_each_column/quick_sales_by_sku.csv)**
 ```sql
   -- Query 1: UDF: overview_of_each_column('sales_by_sku')
     SELECT * FROM overview_of_each_column('sales_by_sku')
@@ -132,7 +132,7 @@ General overview of columns in the table: **[sales_by_sku](./tables_analysis/ove
 I created a User-Defined-Function to get a generalized overview of the numbers within the columns of each table. This function finds Numeric Data types in the table and performs a `Five Number Summary` calculation on each.
 
 
-The query is shown below. [Click here to view documentation](./tables_analysis/udf_numbers_summary.md)
+The query is shown below. [Click here to view documentation](./udf_numbers_summary.md)
 ```sql
 CREATE OR REPLACE FUNCTION numbers_summary(p_tableName TEXT)
 RETURNS TABLE (
@@ -183,35 +183,35 @@ END;
 <br>
 
 ### Getting a general overview of the numbers in each table using UDF: numbers_summary('table_name')
-General overview of columns in the table: **[all_sessions](./tables_analysis/numbers_summary/numsum_all_sessions.csv)**
+General overview of columns in the table: **[all_sessions](./numbers_summary/numsum_all_sessions.csv)**
 ```sql
     SELECT * FROM numbers_summary('all_sessions')
 ```
 
 <br>
 
-General overview of columns in the table: **[analytics](./tables_analysis/numbers_summary/numsum_analytics.csv)**
+General overview of columns in the table: **[analytics](./numbers_summary/numsum_analytics.csv)**
 ```sql
     SELECT * FROM numbers_summary('analytics')
 ```
 
 <br>
 
-General overview of columns in the table: **[products](./tables_analysis/numbers_summary/numsum_products.csv)**
+General overview of columns in the table: **[products](./numbers_summary/numsum_products.csv)**
 ```sql
     SELECT * FROM numbers_summary('products')
 ```
 
 <br>
 
-General overview of columns in the table: **[sales_report](./tables_analysis/numbers_summary/numsum_sales_report.csv)**
+General overview of columns in the table: **[sales_report](./numbers_summary/numsum_sales_report.csv)**
 ```sql
     SELECT * FROM numbers_summary('sales_report')
 ```
 
 <br>
 
-General overview of columns in the table: **[sales_by_sku](./tables_analysis/numbers_summary/numsum_sales_by_sku.csv)**
+General overview of columns in the table: **[sales_by_sku](./numbers_summary/numsum_sales_by_sku.csv)**
 ```sql
     SELECT * FROM numbers_summary('sales_by_sku')
 ```
