@@ -1,6 +1,6 @@
 ## `dividebymil('table_name')`
 ### User Defined Function (UDF)
-A User-Defined Function that divides a column's value by 1,000,000 and rounds it to 2 decimal points.
+A User-Defined Function that divides a column's value by **1,000,000** and rounds it to 2 decimal points.
 
 ```sql
 CREATE OR REPLACE FUNCTION dividebymil(num NUMERIC)
@@ -13,7 +13,7 @@ $$ LANGUAGE plpgsql;
 ```
 
 ### Use case:
-It works the same way as SUM/COUNT/AVG.
+It works the same way as SUM/COUNT/AVG in a way that it returns a scalar value.
 
 Example: `SELECT dividebymil(unit_price) FROM analytics`
 

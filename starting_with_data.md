@@ -36,6 +36,8 @@
                 ORDER BY	uniqueVisitorCount DESC;
         ```
 
+        > View the QA process [here](./data_questions_qa/referred_by_qa.md).
+
         </details>
 - find each unique product viewed by each visitor
 - compute the percentage of visitors to the site that actually makes a purchase

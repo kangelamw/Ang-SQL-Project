@@ -3,7 +3,7 @@ I noticed an efficiency problem where running the UDF `overview_of_each_column('
 
 <br>
 
-[This view](./tables_analysis/overview_of_each_column/_tables_general_overview.csv) aggregates the overviews of multiple tables into a single materialized view for easy reference and analysis.
+[This view](../tables_analysis/overview_of_each_column/_tables_general_overview.csv) aggregates the overviews of multiple tables into a single materialized view for easy reference and analysis.
   - Uses UNION ALL to combine the results from the overview_of_each_column function for each specified table.
   - Adds a table_name column to identify the source table for each row in the materialized view.
 

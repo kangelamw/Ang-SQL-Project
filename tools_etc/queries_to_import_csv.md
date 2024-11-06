@@ -1,8 +1,8 @@
 # QUERIES to insert tables into the db
 
-## No Primary Keys
+### No Primary Keys to start with.
 
-### all_sessions.csv
+### `all_sessions.csv`
 ```sql
 CREATE TABLE all_sessions (
     fullVisitorId TEXT, 
@@ -40,7 +40,9 @@ CREATE TABLE all_sessions (
 );
 ```
 
-#### analytics.csv
+<br>
+
+#### `analytics.csv`
 ```
 CREATE TABLE analytics (
     visitNumber INTEGER,
@@ -60,7 +62,9 @@ CREATE TABLE analytics (
 );
 ```
 
-#### products.csv
+<br>
+
+#### `products.csv`
 ```
 CREATE TABLE products (
     SKU VARCHAR(50),
@@ -73,7 +77,9 @@ CREATE TABLE products (
 );
 ```
 
-#### sales_report.csv
+<br>
+
+#### `sales_report.csv`
 ```
 CREATE TABLE sales_report (
     productSKU VARCHAR(50),
@@ -87,9 +93,13 @@ CREATE TABLE sales_report (
 );
 ```
 
-#### sales_by_sku.csv
+<br>
+
+#### `sales_by_sku.csv`
 ```CREATE TABLE sales_by_sku (
     productSKU VARCHAR(50),
     total_ordered INTEGER
 );
 ```
+
+### I added product SKU as Primary Key.

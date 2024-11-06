@@ -1,15 +1,15 @@
 # PROBLEM 02
-Some values in the revenue table is empty, but I saw that there are no null values in the unit_price table. I've also observed that units_sold is greater than 1, indicating that there was a sale.
+Some values in the revenue table is empty, but I saw that there are no null values in the unit_price table. I've also observed that units_sold is greater than 0, indicating that there was a sale.
 
 ## Solution
 
-I created a materialized view of table containing a list of all the unique_fullvisitorids to have ever appeared in our system.
+I created a materialized view of table containing a list of all the `unique_fullvisitorids` to have ever appeared in our system.
 
 This table shows the full visitor id, sale date, number of units sold, unit price and revenue.
 
->If revenue is null, it calculates `units_sold * unit_price`. I used `COALESCE` and the `dividebymil` UDF to divide the relevant numbers by 1M and round to to decimal places.
+>If revenue is null, it calculates `units_sold * unit_price`. I used `COALESCE` and the `dividebymil` UDF to divide the relevant numbers by 1M and round to 2 decimal places.
 
-This view utilizes the [`UDF: dividebymil(num)`](./tools_etc/udf_dividebymil.md) to provide proper pricing.
+This view utilizes the [`UDF: dividebymil(num)`](../tools_etc/udf_dividebymil.md) to provide proper pricing.
 
 ### Query
 ```sql
