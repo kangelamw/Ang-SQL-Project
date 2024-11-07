@@ -1,6 +1,16 @@
 # QUERIES to insert tables into the db
 
 ### No Primary Keys to start with.
+I added `SKU`/`productSKU` as Primary Key for `Products`
+
+#### Foreign Keys:
+- <details>
+    - `productSKU` on:
+        - `all_sessions`
+        - `sales_by_sku`
+        - `sales_report`
+
+    </details>
 
 ### `all_sessions.csv`
 ```sql
@@ -102,4 +112,3 @@ CREATE TABLE sales_report (
 );
 ```
 
-### I added product SKU as Primary Key.
