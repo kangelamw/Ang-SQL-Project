@@ -9,13 +9,19 @@ I noticed an efficiency problem where running the UDF `overview_of_each_column('
 
 <br>
 
-  > #### BEST USED ON:
-  > Calling the function overview_of_each_column('table_name') on 'analytics' table takes 31.362s
-  > Calling `SELECT * FROM tables_general_overview WHERE table_name = 'analytics' ORDER BY num_of_null_val DESC` takes 0.115s
+#### BEST USED ON:
+
+Calling the function on analytics table:
+  
+`overview_of_each_column('analytics') `
+- takes 31.362s
+
+`SELECT * FROM tables_general_overview WHERE table_name = 'analytics' ORDER BY num_of_null_val DESC`
+- takes 0.115s
 
 <br>
 
-The query creating this view is shown below:
+#### The query creating this view is shown below:
 ```sql
 CREATE MATERIALIZED VIEW tables_general_overview AS
   SELECT 'sales_by_sku' AS table_name, *
