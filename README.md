@@ -142,3 +142,6 @@ If we had more time, we could expand our analysis and pursue additional objectiv
   > This will also tell us how long of a time window we have to encourage the customer to stay on the site and make a purchase.
   
     - For example: At 2min mark, start popping up with discount codes for the product they're looking at or previously looked at.
+
+### Grade
+![](./img/sql.png)
